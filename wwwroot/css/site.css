@@ -1,0 +1,54 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.botoes {
+    background-color: #646464;
+    display: flex;
+    border-radius: 5px;
+    color: black;
+    height: 40px;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.coluna{
+    display: flex;
+    gap: 10px;
+}
+
+.detail {
+    background-color: rgb(253, 215, 170);
+}
+
+.delete {
+    background-color: #FA7070;
+}
+
+.edit {
+    background-color: #EC8F5E;
+    border-radius: 5px;
+    color: black;
+}

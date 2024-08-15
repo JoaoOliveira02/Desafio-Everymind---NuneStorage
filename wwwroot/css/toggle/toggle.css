@@ -1,0 +1,88 @@
+﻿:root {
+    --verde-escuro: #2c3333;
+    --verde-medio: #395b64;
+    --verde-claro: #a5c9ca;
+    --verde-clarissimo: #e7f6f2;
+    --verde-claro-thead: #819fa7;
+}
+#switch {
+    display: none;
+}
+
+.switch-container {
+    width: 100px;
+    height: 40px;
+    border-radius: 10em;
+    position: relative;
+    margin-top: -12px;
+    .switch-color
+
+{
+    width: 100px;
+    height: 35px;
+    left: 0px;
+    top: 1em;
+    background: var(--verde-clarissimo);
+    border-radius: 10em;
+    z-index: 1;
+    position: absolute;
+    transition: all 500ms cubic-bezier(0.34, 1.36, 0.2, 1);
+}
+
+label {
+    width: 30px;
+    height: 30px;
+    border-radius: 10em;
+    background: white;
+    position: absolute;
+    top: 20px;
+    left: 3px;
+    z-index: 99;
+    cursor: pointer;
+}
+
+    label::before {
+        font-weight: 900;
+        font-size: 15px;
+        content: "Removido";
+        position: absolute;
+        left: 2.2em;
+        top: 0.3em;
+        color: Black;
+    }
+
+    label::after {
+        font-weight: 900;
+        font-size: 15px;
+        content: "Desativo";
+        position: absolute;
+        left: -4.2em;
+        top: 0.3em;
+        opacity: 0;
+        color:var(--verde-clarissimo);
+    }
+
+#switch:checked ~ label::before {
+    opacity: 0;
+}
+
+#switch:checked ~ label::after {
+    opacity: 2;
+}
+
+#switch:checked ~ label {
+    transform: translatex(3.5em) rotatez(360deg);
+}
+
+#switch:checked ~ .switch-color {
+    background-color: var(--verde-medio);
+}
+
+#switch ~ label {
+    transition: all 1s cubic-bezier(0.34, 1.36, 0.2, 1);
+}
+}
+.switch-container #switch ~ label {
+    transition: all 1s cubic-bezier(0.34, 1.36, 0.2, 1);
+    background-color: var(--verde-clarissimo)
+}

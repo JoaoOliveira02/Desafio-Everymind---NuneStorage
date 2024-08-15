@@ -1,0 +1,62 @@
+﻿@model IEnumerable<NunesStorage.Models.Produtos>
+
+@{
+    ViewData["Title"] = "Lista De Produtos";
+}
+
+<h1>Lista De Produtos</h1>
+
+
+<a asp-action="Create" class="btn botoes" data-toggle="tooltip" data-placement="bottom" title="Cadastrar Novo Produto">+&nbsp; Criar </a>
+
+<table id="myTable" class="table table-light table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                <i class="fas fa-tags" data-toggle="tooltip" data-placement="bottom" title="Nome"> </i> Nome
+            </th>
+            <th>
+                <i class="fas fa-exchange-alt" data-toggle="tooltip" data-placement="bottom" title="Codigo"> </i> Codigo
+            </th>
+            <th>
+                <i class="fas fa-align-justify" data-toggle="tooltip" data-placement="bottom" title="Descricao"> </i> Descrição
+            </th>
+            <th>
+                <i class="fas fa-coins" data-toggle="tooltip" data-placement="bottom" title="Preço"> </i> Preço
+            </th>
+            <th>
+                <i class="far fa-lightbulb" data-toggle="tooltip" data-placement="bottom" title="Ações"> </i> Ações
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td class="coluna">                
+                    <a class="btn botoes edit" asp-action="Edit" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Editar Produto #ID: @item.Id"><i class="fas fa-edit"></i></a>
+
+                    <a class="btn botoes delete" asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="bottom" title="Deletar Produto #ID: @item.Id"><i class="fas fa-eraser"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
